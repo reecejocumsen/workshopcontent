@@ -60,13 +60,13 @@ Step 5.  Move to the very end of your code and add the following if
 
 ```python
 if (int(score) > int(comp_score)):
-    mypen.setposition(0, 0)
-    mypen.color("yellow")
-    mypen.write("Game Over: You WIN", False, align="center", font=("Arial", 28, "normal"))
+    my_pen.setposition(0, 0)
+    my_pen.color("yellow")
+    my_pen.write("Game Over: You WIN", False, align="center", font=("Arial", 28, "normal"))
 else:
-    mypen.setposition(0, 0)
-    mypen.color("yellow")
-    mypen.write("Game Over: You LOSE", False, align="center", font=("Arial", 28, "normal"))
+    my_pen.setposition(0, 0)
+    my_pen.color("yellow")
+    my_pen.write("Game Over: You LOSE", False, align="center", font=("Arial", 28, "normal"))
 ```
 
 The if statement compares your score \(player\) against the opponent score

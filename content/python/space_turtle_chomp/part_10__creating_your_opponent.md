@@ -88,43 +88,43 @@ Step 8. Now you create your competition score just under your \# Create
 
 ```py
 # Create competition score
-mypen2 = turtle.Turtle()
-mypen2.color('red')
-mypen2.hideturtle()
+my_pen_2 = turtle.Turtle()
+my_pen_2.color('red')
+my_pen_2.hideturtle()
 ```
 
 Step 9.  Now copy the player collision checking section and paste direct below. Note: this example code is the version for Windows, if you are on a mac yours will look slightly different:
 
 ```python
     # Collision checking
-    if isCollision(player, food):
+    if is_collision(player, food):
         food.setposition(random.randint(-290, 290), random.randint(-290, 290))
         food.right(random.randint(0,360))
         winsound.PlaySound('chomp.wav', winsound.SND_ASYNC)
         score +=1
-        mypen.penup()
-        mypen.hideturtle()
-        mypen.setposition(-290, 305)
-        scorestring ="Score: %s" % score
-        mypen.write(scorestring, False, align='left', font=('Arial', 14, 'normal'))
+        my_pen.penup()
+        my_pen.hideturtle()
+        my_pen.setposition(-290, 305)
+        score_string ="Score: %s" % score
+        my_pen.write(score_string, False, align='left', font=('Arial', 14, 'normal'))
 ```
 
-Step 10.  Edit the pasted code, changing player to comp, score to comp_score, mypen to mypen2 and setting the position of the comp score. It should look something like the below:
+Step 10.  Edit the pasted code, changing player to comp, score to comp_score, my_pen to my_pen_2 and setting the position of the comp score. It should look something like the below:
 
 ```python
     # Comp Collision checking
-    if isCollision(comp, food):
+    if is_collision(comp, food):
         food.setposition(random.randint(-290, 290), random.randint(-290, 290))
         food.right(random.randint(0,360))
         winsound.playSound('chomp.wav', winsound.SND_ASYNC)
         comp_score+=1
         # Draw the Comp score on the screen
-        mypen2.undo()
-        mypen2.penup()
-        mypen2.hideturtle()
-        mypen2.setposition(200, 305)
-        scorestring ="Score: %s" % comp_score
-        mypen2.write(scorestring, False, align='left', font=('Arial', 14, 'normal'))
+        my_pen_2.undo()
+        my_pen_2.penup()
+        my_pen_2.hideturtle()
+        my_pen_2.setposition(200, 305)
+        score_string ="Score: %s" % comp_score
+        my_pen_2.write(score_string, False, align='left', font=('Arial', 14, 'normal'))
 ```
 
 

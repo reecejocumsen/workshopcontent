@@ -40,17 +40,17 @@ wn.bgpic('kbgame-bg.gif')
 Step 4.  The space cabbages currently are the same size as your turtle lets
  makes them smaller and add a few more. 
  
-You can do add more by tweaking the `maxFoods` variable that you defined earlier: 
+You can do add more by tweaking the `max_foods` variable that you defined earlier: 
 
 ```python
 # Create food
-maxFoods = 10
+max_foods = 10
 ```
 
 and then to change the size we set their `shapesize` in the for loop that creates them:
 
 ```python
-for count in range(maxFoods):
+for count in range(max_foods):
     new_food = turtle.Turtle()
     new_food.shapesize(.5)
 ```
@@ -105,7 +105,7 @@ Step 7.  Now in the \#boundary checking section we type the following os.system.
            os.system('afplay bounce.mp3&')
 
         # Collision checking
-        if isCollision(player, food):
+        if is_collision(player, food):
            food.setposition(random.randint(-290, 290), random.randint(-290, 290))
            food.right(random.randint(0,360))
            os.system('afplay chomp.mp3&')
@@ -146,7 +146,7 @@ Step 7.  Now in the \#boundary checking section we type the following
         winsound.PlaySound('bounce.wav', winsound.SND_ASYNC)
 
     # Move Food around
-    for count in range(maxFoods):
+    for count in range(max_foods):
         food.forward(3)
 
         #  Boundary Food Checking x coordinate
@@ -160,7 +160,7 @@ Step 7.  Now in the \#boundary checking section we type the following
            winsound.PlaySound('bounce.wav', winsound.SND_ASYNC)
 
         # Collision checking
-        if isCollision(player, food):
+        if is_collision(player, food):
            food.setposition(random.randint(-290, 290), random.randint(-290, 290))
            food.right(random.randint(0,360))
            winsound.PlaySound('chomp.wav', winsound.SND_ASYNC)

@@ -19,11 +19,11 @@ Step 1.  First we create the maximum number of cabbages and an empty list by
 
 ```python
 # Create food
-maxFoods = 6
+max_foods = 6
 foods = []
 ```
 
-Step 2.  Next you create a for loop using maxFoods as the range updating the code
+Step 2.  Next you create a for loop using max_foods as the range updating the code
 
 From this:
 
@@ -39,7 +39,7 @@ food.setposition(random.randint(-290, 290), random.randint(-290, 290))
 To this:
 
 ```python
-for count in range(maxFoods):
+for count in range(max_foods):
     new_food = turtle.Turtle()
     new_food.color("lightgreen")
     new_food.shape("circle")
@@ -113,7 +113,7 @@ Step 4.  Now let’s move \(cut and paste\) your food collision checking code
            food.right(180)
 
         # Collision checking
-        if isCollision(player, food):
+        if is_collision(player, food):
             food.setposition(random.randint(-290, 290), random.randint(-290, 290))
             food.right(random.randint(0, 360))
 ```
