@@ -6,22 +6,22 @@ import winsound
 
 # Set up screen
 turtle.setup(650, 650)
-wn = turtle.Screen()
-wn.bgcolor("black")
-wn.bgpic("kbgame-bg.gif")
-wn.tracer(3)
+window = turtle.Screen()
+window.bgcolor("black")
+window.bgpic("kbgame-bg.gif")
+window.tracer(3)
 
 # Draw border
-my_pen = turtle.Turtle()
-my_pen.color("white")
-my_pen.penup()
-my_pen.setposition(-300, -300)
-my_pen.pendown()
-my_pen.pensize(3)
+interface_pen = turtle.Turtle()
+interface_pen.color("white")
+interface_pen.penup()
+interface_pen.setposition(-300, -300)
+interface_pen.pendown()
+interface_pen.pensize(3)
 for side in range(4):
-    my_pen.forward(600)
-    my_pen.left(90)
-my_pen.hideturtle()
+    interface_pen.forward(600)
+    interface_pen.left(90)
+interface_pen.hideturtle()
 
 # Create player turtle
 player = turtle.Turtle()
@@ -62,11 +62,11 @@ def increase_speed():
     speed += 1
 
 
-def is_collision(t1, t2):
-    d = math.sqrt(
-        math.pow(t1.xcor() - t2.xcor(), 2) + math.pow(t1.ycor() - t2.ycor(), 2)
+def is_collision(turtle_1, turtle_2):
+    distance = math.sqrt(
+        math.pow(turtle_1.xcor() - turtle_2.xcor(), 2) + math.pow(turtle_1.ycor() - turtle_2.ycor(), 2)
     )
-    if d < 20:
+    if distance < 20:
         return True
     else:
         return False

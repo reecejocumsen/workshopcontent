@@ -3,8 +3,8 @@ import turtle
 
 # Set up screen
 turtle.setup(650, 650)
-wn = turtle.Screen()
-wn.bgcolor("Navy")
+window = turtle.Screen()
+window.bgcolor("Navy")
 
 # Create player turtle
 player = turtle.Turtle()

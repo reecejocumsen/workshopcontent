@@ -19,35 +19,35 @@ Currently with our turtle game you can move your player turtle off the screen
 Step 1. Use Save As to save your module as `kbgame3`
 
 Step 2. Move to the top of your code just under the \#Set up Screen section
- and `wn.bgcolor('Navy')` line and create and new turtle element called border by typing:
+ and `window.bgcolor('Navy')` line and create and new turtle element called border by typing:
 
 ```python
-wn.bgcolor('Navy')
+window.bgcolor('Navy')
 
 # Draw border
-my_pen = turtle.Turtle()
-my_pen.penup()
-my_pen.setposition(-300,-300)
-my_pen.pendown()
-my_pen.pensize(3)
-my_pen.color('white')
+interface_pen = turtle.Turtle()
+interface_pen.penup()
+interface_pen.setposition(-300,-300)
+interface_pen.pendown()
+interface_pen.pensize(3)
+interface_pen.color('white')
 for side in range(4):
-    my_pen.forward(600)
-    my_pen.left(90)
-my_pen.hideturtle()
+    interface_pen.forward(600)
+    interface_pen.left(90)
+interface_pen.hideturtle()
 
 # Create player turtle
 ```
 
-`setposition` places the my_pen turtle in the bottom left hand corner of your screen `pendown`
- gets your my_pen turtle ready to draw, and the `for side in range (4):` tells your my_pen
+`setposition` places the interface_pen turtle in the bottom left hand corner of your screen `pendown`
+ gets your interface_pen turtle ready to draw, and the `for side in range (4):` tells your interface_pen
   turtle to draw four sides using a simple loop of draw forward for 600 points
   then turn left and repeat four times.
 
 Step 3. Save and Run your module.  
 
 Notice how a turtle 'draws' the borders when the module loads? If you would like to get straight to the turtle-ly action
-try setting `my_pen.speed(0)` after setting `my_pen.color('...')`
+try setting `interface_pen.speed(0)` after setting `interface_pen.color('...')`
 
 {{% notice note %}}
 While there is now a border your player turtle can still go off screen, this is because we have not set boundaries yet.

@@ -20,11 +20,11 @@ Step 1.  First we need to create a new turtle object as the opponent, move to
 
 ```python
 # Create opponent turtle
-comp = turtle.Turtle()
-comp.color('red')
-comp.shape('turtle')
-comp.penup()
-comp.setposition(random.randint(-290, 290), random.randint(-290, 290))
+competitor = turtle.Turtle()
+competitor.color('red')
+competitor.shape('turtle')
+competitor.penup()
+competitor.setposition(random.randint(-290, 290), random.randint(-290, 290))
 ```
 
 Step 2.  Save your game as kbgame10 and run your module
@@ -36,7 +36,7 @@ Step 3. To move your opponent turtle add the following code to the while True
  loop under player.forward\(speed\)
 
 ```
-    comp.forward(12)
+    competitor.forward(12)
 ```
 
 Step 4. Next copy the following text and paste it directly underneath. Note, the below example is in the format for Mac, if you are on Windows yours will look slightly different:
@@ -57,18 +57,18 @@ Step 5. Edit the pasted text to:
 
 ```py
     # Boundary Comp Checking x coordinate
-    if comp.xcor() > 290 or comp.xcor() < -290:
-        comp.right(180)
+    if competitor.xcor() > 290 or competitor.xcor() < -290:
+        competitor.right(180)
         os.system('afplay bounce.mp3&')
 
     # Boundary Comp Checking y coordinate
-    if comp.ycor() > 290 or comp.ycor() < -290:
-        comp.right(180)
+    if competitor.ycor() > 290 or competitor.ycor() < -290:
+        competitor.right(180)
         os.system('afplay bounce.mp3&')
 ```
 
 {{% notice note %}}
-you can make the comp.forward speed faster or slower by changing the number
+you can make the competitor.forward speed faster or slower by changing the number
  within the brackets
 {{% /notice %}}
 
@@ -80,7 +80,7 @@ Now your opponent turtle is moving around the screen and bouncing of the walls,
 Step 7.  Within the \# Create variable score section add:
 
 ```python
-comp_score = 0
+competitor_score = 0
 ```
 
 Step 8. Now you create your competition score just under your \# Create
@@ -88,9 +88,9 @@ Step 8. Now you create your competition score just under your \# Create
 
 ```py
 # Create competition score
-my_pen_2 = turtle.Turtle()
-my_pen_2.color('red')
-my_pen_2.hideturtle()
+competitor_interface_pen = turtle.Turtle()
+competitor_interface_pen.color('red')
+competitor_interface_pen.hideturtle()
 ```
 
 Step 9.  Now copy the player collision checking section and paste direct below. Note: this example code is the version for Windows, if you are on a mac yours will look slightly different:
@@ -102,29 +102,29 @@ Step 9.  Now copy the player collision checking section and paste direct below. 
         food.right(random.randint(0,360))
         winsound.PlaySound('chomp.wav', winsound.SND_ASYNC)
         score +=1
-        my_pen.penup()
-        my_pen.hideturtle()
-        my_pen.setposition(-290, 305)
+        interface_pen.penup()
+        interface_pen.hideturtle()
+        interface_pen.setposition(-290, 305)
         score_string ="Score: %s" % score
-        my_pen.write(score_string, False, align='left', font=('Arial', 14, 'normal'))
+        interface_pen.write(score_string, False, align='left', font=('Arial', 14, 'normal'))
 ```
 
-Step 10.  Edit the pasted code, changing player to comp, score to comp_score, my_pen to my_pen_2 and setting the position of the comp score. It should look something like the below:
+Step 10.  Edit the pasted code, changing player to competitor, score to competitor_score, interface_pen to competitor_interface_pen and setting the position of the competitor score. It should look something like the below:
 
 ```python
     # Comp Collision checking
-    if is_collision(comp, food):
+    if is_collision(competitor, food):
         food.setposition(random.randint(-290, 290), random.randint(-290, 290))
         food.right(random.randint(0,360))
         winsound.playSound('chomp.wav', winsound.SND_ASYNC)
-        comp_score+=1
+        competitor_score+=1
         # Draw the Comp score on the screen
-        my_pen_2.undo()
-        my_pen_2.penup()
-        my_pen_2.hideturtle()
-        my_pen_2.setposition(200, 305)
-        score_string ="Score: %s" % comp_score
-        my_pen_2.write(score_string, False, align='left', font=('Arial', 14, 'normal'))
+        competitor_interface_pen.undo()
+        competitor_interface_pen.penup()
+        competitor_interface_pen.hideturtle()
+        competitor_interface_pen.setposition(200, 305)
+        score_string ="Score: %s" % competitor_score
+        competitor_interface_pen.write(score_string, False, align='left', font=('Arial', 14, 'normal'))
 ```
 
 

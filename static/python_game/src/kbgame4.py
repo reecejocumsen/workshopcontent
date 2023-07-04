@@ -5,20 +5,20 @@ import turtle
 
 # Set up screen
 turtle.setup(650, 650)
-wn = turtle.Screen()
-wn.bgcolor("Navy")
+window = turtle.Screen()
+window.bgcolor("Navy")
 
 # Draw border
-my_pen = turtle.Turtle()
-my_pen.color("white")
-my_pen.penup()
-my_pen.setposition(-300, -300)
-my_pen.pendown()
-my_pen.pensize(3)
+interface_pen = turtle.Turtle()
+interface_pen.color("white")
+interface_pen.penup()
+interface_pen.setposition(-300, -300)
+interface_pen.pendown()
+interface_pen.pensize(3)
 for side in range(4):
-    my_pen.forward(600)
-    my_pen.left(90)
-my_pen.hideturtle()
+    interface_pen.forward(600)
+    interface_pen.left(90)
+interface_pen.hideturtle()
 
 # Create player turtle
 player = turtle.Turtle()
@@ -70,11 +70,11 @@ while True:
         player.right(180)
 
     # Collision checking
-    d = math.sqrt(
+    distance = math.sqrt(
         math.pow(player.xcor() - food.xcor(), 2)
         + math.pow(player.ycor() - food.ycor(), 2)
     )
-    if d < 20:
+    if distance < 20:
         food.setposition(random.randint(-290, 290), random.randint(-290, 290))
 
 delay = input("Press Enter to finish.")

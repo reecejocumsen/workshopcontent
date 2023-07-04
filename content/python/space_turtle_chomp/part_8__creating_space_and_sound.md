@@ -30,11 +30,11 @@ For Apple Mac users download the following .mp3 files:
 * [bounce.mp3](/python_game/src/bounce.mp3)
 * [chomp.mp3](/python_game/src/chomp.mp3)
 
-Step 3.  You load the background image by adding the wn.bgpic to the \#Set up
+Step 3.  You load the background image by adding the window.bgpic to the \#Set up
  screen section after wnbgcolor\('navy'\) :
 
 ```python
-wn.bgpic('kbgame-bg.gif')
+window.bgpic('kbgame-bg.gif')
 ```
 
 Step 4.  The space cabbages currently are the same size as your turtle lets
@@ -178,10 +178,10 @@ The SND\_ASYNC tells the computer to play the sound in the background so the
 Step 8.  Save and run your module
 
 Step 9.  Now you can change the background to black to make the game look
- better by editing the wn.bgcolor.. to:
+ better by editing the window.bgcolor.. to:
 
 ```python
-wn.bgcolor('black')
+window.bgcolor('black')
 ```
 
 Step 9.  Save and Run your model

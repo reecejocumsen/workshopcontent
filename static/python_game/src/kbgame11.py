@@ -7,22 +7,22 @@ import turtle
 
 # Set up screen
 turtle.setup(650, 650)
-wn = turtle.Screen()
-wn.bgcolor("black")
-wn.bgpic("kbgame-bg.gif")
-wn.tracer(3)
+window = turtle.Screen()
+window.bgcolor("black")
+window.bgpic("kbgame-bg.gif")
+window.tracer(3)
 
 # Draw border
-my_pen = turtle.Turtle()
-my_pen.color("white")
-my_pen.penup()
-my_pen.setposition(-300, -300)
-my_pen.pendown()
-my_pen.pensize(3)
+interface_pen = turtle.Turtle()
+interface_pen.color("white")
+interface_pen.penup()
+interface_pen.setposition(-300, -300)
+interface_pen.pendown()
+interface_pen.pensize(3)
 for side in range(4):
-    my_pen.forward(600)
-    my_pen.left(90)
-my_pen.hideturtle()
+    interface_pen.forward(600)
+    interface_pen.left(90)
+interface_pen.hideturtle()
 
 # Create player turtle
 player = turtle.Turtle()
@@ -32,20 +32,20 @@ player.penup()
 player.speed(0)
 
 # Create competition turtle
-comp = turtle.Turtle()
-comp.color("red")
-comp.shape("turtle")
-comp.penup()
-comp.setposition(random.randint(-290, 290), random.randint(-290, 290))
+competitor = turtle.Turtle()
+competitor.color("red")
+competitor.shape("turtle")
+competitor.penup()
+competitor.setposition(random.randint(-290, 290), random.randint(-290, 290))
 
 # Create competition pen
-my_pen_2 = turtle.Turtle()
-my_pen_2.color("red")
-my_pen_2.hideturtle()
+competitor_interface_pen = turtle.Turtle()
+competitor_interface_pen.color("red")
+competitor_interface_pen.hideturtle()
 
 # Create player and competitor score
 score = 0
-comp_score = 0
+competitor_score = 0
 
 # create food
 max_foods = 10
@@ -81,11 +81,11 @@ def increase_speed():
     speed += 1
 
 
-def is_collision(t1, t2):
-    d = math.sqrt(
-        math.pow(t1.xcor() - t2.xcor(), 2) + math.pow(t1.ycor() - t2.ycor(), 2)
+def is_collision(turtle_1, turtle_2):
+    distance = math.sqrt(
+        math.pow(turtle_1.xcor() - turtle_2.xcor(), 2) + math.pow(turtle_1.ycor() - turtle_2.ycor(), 2)
     )
-    if d < 20:
+    if distance < 20:
         return True
     else:
         return False
@@ -104,7 +104,7 @@ while True:
     gametime = gametime - 1
 
     player.forward(speed)
-    comp.forward(12)
+    competitor.forward(12)
 
     # Boundary Player Checking x coordinate
     if player.xcor() > 290 or player.xcor() < -290:
@@ -117,13 +117,13 @@ while True:
         os.system("afplay bounce.mp3&")
 
     # Boundary Comp Checking x coordinate
-    if comp.xcor() > 280 or comp.xcor() < -280:
-        comp.right(random.randint(30, 155))
+    if competitor.xcor() > 280 or competitor.xcor() < -280:
+        competitor.right(random.randint(30, 155))
         os.system("afplay bounce.mp3&")
 
     # Boundary Comp Checking y coordinate
-    if comp.ycor() > 280 or comp.ycor() < -280:
-        comp.right(random.randint(30, 155))
+    if competitor.ycor() > 280 or competitor.ycor() < -280:
+        competitor.right(random.randint(30, 155))
         os.system("afplay bounce.mp3&")
 
     # Move Food around
@@ -147,41 +147,41 @@ while True:
             os.system("afplay chomp.mp3&")
             score += 1
             # Draw the score on the screen
-            my_pen.undo()
-            my_pen.penup()
-            my_pen.hideturtle()
-            my_pen.setposition(-290, 310)
+            interface_pen.undo()
+            interface_pen.penup()
+            interface_pen.hideturtle()
+            interface_pen.setposition(-290, 310)
             score_string = "Score: %s" % score
-            my_pen.write(
+            interface_pen.write(
                 score_string, False, align="left", font=("Arial", 14, "normal")
             )
 
         # Comp Collision checking
-        if is_collision(comp, food):
+        if is_collision(competitor, food):
             food.setposition(random.randint(-290, 290), random.randint(-290, 290))
             food.right(random.randint(0, 360))
             os.system("afplay chomp.mp3&")
-            comp_score += 1
+            competitor_score += 1
             # Draw the Comp score on the screen
-            my_pen_2.undo()
-            my_pen_2.penup()
-            my_pen_2.hideturtle()
-            my_pen_2.setposition(200, 310)
-            score_string = "Score: %s" % comp_score
-            my_pen_2.write(
+            competitor_interface_pen.undo()
+            competitor_interface_pen.penup()
+            competitor_interface_pen.hideturtle()
+            competitor_interface_pen.setposition(200, 310)
+            score_string = "Score: %s" % competitor_score
+            competitor_interface_pen.write(
                 score_string, False, align="left", font=("Arial", 14, "normal")
             )
 
-if int(score) > int(comp_score):
-    my_pen.setposition(0, 0)
-    my_pen.color("yellow")
-    my_pen.write(
+if int(score) > int(competitor_score):
+    interface_pen.setposition(0, 0)
+    interface_pen.color("yellow")
+    interface_pen.write(
         "Game Over: You WIN", False, align="center", font=("Arial", 28, "normal")
     )
 else:
-    my_pen.setposition(0, 0)
-    my_pen.color("yellow")
-    my_pen.write(
+    interface_pen.setposition(0, 0)
+    interface_pen.color("yellow")
+    interface_pen.write(
         "Game Over: You LOOSE", False, align="center", font=("Arial", 28, "normal")
     )
 

@@ -130,7 +130,7 @@ Step 6.  Add the tracer function by typing the following at the end of the
  \#Set up screen area:
 
 ```python
-wn.tracer(3)
+window.tracer(3)
 ```
 
 Step 7.  Save and run your module

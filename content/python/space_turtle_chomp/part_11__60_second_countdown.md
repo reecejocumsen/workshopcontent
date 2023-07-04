@@ -59,18 +59,18 @@ Step 5.  Move to the very end of your code and add the following if
  statement:
 
 ```python
-if (int(score) > int(comp_score)):
-    my_pen.setposition(0, 0)
-    my_pen.color("yellow")
-    my_pen.write("Game Over: You WIN", False, align="center", font=("Arial", 28, "normal"))
+if (int(score) > int(competitor_score)):
+    interface_pen.setposition(0, 0)
+    interface_pen.color("yellow")
+    interface_pen.write("Game Over: You WIN", False, align="center", font=("Arial", 28, "normal"))
 else:
-    my_pen.setposition(0, 0)
-    my_pen.color("yellow")
-    my_pen.write("Game Over: You LOSE", False, align="center", font=("Arial", 28, "normal"))
+    interface_pen.setposition(0, 0)
+    interface_pen.color("yellow")
+    interface_pen.write("Game Over: You LOSE", False, align="center", font=("Arial", 28, "normal"))
 ```
 
 The if statement compares your score \(player\) against the opponent score
- \(comp\) and if your score is higher it prints the You Win message and if it
+ \(competitor\) and if your score is higher it prints the You Win message and if it
  is lower it prints the You Lose message.
 
 If you run your code now, the game will quit before you can actually read the message. Let’s add a delay so we can see the message.

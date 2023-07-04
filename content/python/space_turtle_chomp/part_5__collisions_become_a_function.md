@@ -18,15 +18,15 @@ Step 1.  To create as a function we will use the `is_collision` to return a
  `#Define functions` section:
 
 ```python
-def is_collision(t1, t2):
-       d = math.sqrt(math.pow(t1.xcor()-t2.xcor(),2) + math.pow(t1.ycor()-t2.ycor(),2))
-       if d < 20:
+def is_collision(turtle_1, turtle_2):
+       distance = math.sqrt(math.pow(turtle_1.xcor()-turtle_2.xcor(),2) + math.pow(turtle_1.ycor()-turtle_2.ycor(),2))
+       if distance < 20:
            return True
        else:
            return False
 ```
 
-So your function uses t1 and t2 as generic terms instead of turtle and food and
+So your function uses turtle_1 and turtle_2 as generic terms instead of turtle and food and
  uses the same collision formula as before with an if statement that returns a
  True vales if they are in the same location \(collide\) and a False value when
  they don’t.

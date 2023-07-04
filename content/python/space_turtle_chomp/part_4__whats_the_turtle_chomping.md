@@ -70,8 +70,8 @@ Step 6.  Now we write the math formula that will take the x coordinate of the
   
 
     # Collision checking
-    d = math.sqrt(math.pow(player.xcor() - food.xcor(), 2) + math.pow(player.ycor() - food.ycor(),2))
-    if d < 20:
+    distance = math.sqrt(math.pow(player.xcor() - food.xcor(), 2) + math.pow(player.ycor() - food.ycor(),2))
+    if distance < 20:
         food.hideturtle()
 ```
 
@@ -103,7 +103,7 @@ Step 8.  Now you set the random position within the x and y coordinates by
 
 ```python
    
-    if d < 20:
+    if distance < 20:
         food.setposition(random.randint(-290, 290), random.randint(-290, 290))
 ```
 
